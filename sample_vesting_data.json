@@ -1,0 +1,83 @@
+{
+  "wallets": [
+    {
+      "address": "0:1234567890abcdef1234567890abcdef12345678",
+      "label": "Team Vesting Wallet #1",
+      "category": "team",
+      "vesting_total_amount": 10000000000000000,
+      "vesting_start_time": 1704067200,
+      "vesting_total_duration": 31536000,
+      "unlock_period": 2592000,
+      "cliff_duration": 7776000,
+      "unlocked_amount": 2500000000000000,
+      "locked_amount": 7500000000000000
+    },
+    {
+      "address": "0:abcdef1234567890abcdef1234567890abcdef12",
+      "label": "Investor Series A",
+      "category": "investors",
+      "vesting_total_amount": 50000000000000000,
+      "vesting_start_time": 1706745600,
+      "vesting_total_duration": 63072000,
+      "unlock_period": 2592000,
+      "cliff_duration": 15552000,
+      "unlocked_amount": 12500000000000000,
+      "locked_amount": 37500000000000000
+    },
+    {
+      "address": "0:fedcba0987654321fedcba0987654321fedcba09",
+      "label": "Foundation Reserve",
+      "category": "foundation",
+      "vesting_total_amount": 100000000000000000,
+      "vesting_start_time": 1698796800,
+      "vesting_total_duration": 126144000,
+      "unlock_period": 7776000,
+      "cliff_duration": 31536000,
+      "unlocked_amount": 25000000000000000,
+      "locked_amount": 75000000000000000
+    },
+    {
+      "address": "0:9876543210fedcba9876543210fedcba98765432",
+      "label": "Ecosystem Development",
+      "category": "ecosystem",
+      "vesting_total_amount": 30000000000000000,
+      "vesting_start_time": 1709424000,
+      "vesting_total_duration": 94608000,
+      "unlock_period": 2592000,
+      "cliff_duration": 0,
+      "unlocked_amount": 10000000000000000,
+      "locked_amount": 20000000000000000
+    },
+    {
+      "address": "0:5555aaaa5555aaaa5555aaaa5555aaaa5555aaaa",
+      "label": "Community Rewards",
+      "category": "community",
+      "vesting_total_amount": 75000000000000000,
+      "vesting_start_time": 1719792000,
+      "vesting_total_duration": 157680000,
+      "unlock_period": 7776000,
+      "cliff_duration": 23328000,
+      "unlocked_amount": 5000000000000000,
+      "locked_amount": 70000000000000000
+    },
+    {
+      "address": "0:bbbbccccbbbbccccbbbbccccbbbbccccbbbbcccc",
+      "label": "Strategic Partners",
+      "category": "partners",
+      "vesting_total_amount": 25000000000000000,
+      "vesting_start_time": 1711843200,
+      "vesting_total_duration": 47304000,
+      "unlock_period": 2592000,
+      "cliff_duration": 10368000,
+      "unlocked_amount": 8000000000000000,
+      "locked_amount": 17000000000000000
+    }
+  ],
+  "metadata": {
+    "last_updated": "2024-11-08T00:00:00Z",
+    "total_wallets": 6,
+    "total_locked": 205000000000000000,
+    "total_unlocked": 63000000000000000,
+    "data_source": "DTON GraphQL API"
+  }
+}

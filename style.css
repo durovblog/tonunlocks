@@ -832,6 +832,10 @@ select.form-control {
   width: 100%;
 }
 
+section + section {
+  margin-top: 32px;
+}
+
 /* Мобильная адаптивность */
 @media (max-width: 768px) {
   .ton-price-card {

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TON Unlocks Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Заголовок -->
+        <header class="header">
+            <h1 class="gradient-title">TON Unlocks Tracker</h1>
+            <p class="header__subtitle">Трекер разблокировок токенов TON</p>
+            <div class="header__meta">
+                <span class="status status--info" id="data-status">Загрузка данных...</span>
+                <span class="data-date" id="data-date"></span>
+            </div>
+        </header>
+
+<!-- Блок с курсом TON -->
+<div class="ton-metrics card ton-price-card">
+  <div id="ton-metrics-loading" class="ton-metrics-loading">Загрузка курса TON...</div>
+  <div id="ton-metrics-content" class="ton-metrics-content" style="display: none;">
+    <div class="ton-metrics-row">
+      <span class="ton-icon"></span>
+      <span class="ton-price" id="ton-price"></span>
+      <span class="ton-updated" id="ton-price-updated"></span>
+    </div>
+  </div>
+</div>
+        
+        <!-- График -->
+        <section class="chart-section">
+            <div class="card">
+                <div class="card__body">
+                    <h2>Кумулятивные разблокировки TON</h2>
+                    <div class="chart-container">
+                        <canvas id="unlocks-chart"></canvas>
+                    </div>
+                    <div class="chart-stats" id="chart-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Всего разблокировано:</span>
+                            <span class="stat-value" id="total-unlocked">-</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Текущая дата:</span>
+                            <span class="stat-value" id="current-date">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Таблица -->
+        <section class="table-section">
+            <div class="card">
+                <div class="card__body">
+                    <h2>Детали по кошелькам</h2>
+                    <div class="table-controls">
+                        <input type="text" class="form-control" id="search-input" placeholder="Поиск по адресу...">
+                        <select class="form-control" id="status-filter">
+                            <option value="all">Все статусы</option>
+                            <option value="locked">Заблокировано</option>
+                            <option value="unlocked">Разблокировано</option>
+                            <option value="partial">Частично разблокировано</option>
+                        </select>
+                    </div>
+                    <div class="table-container">
+                        <table class="wallets-table" id="wallets-table">
+                            <thead>
+                                <tr>
+                                    <th>Адрес кошелька</th>
+                                    <th>Общий объем (TON)</th>
+                                    <th>Дата начала</th>
+                                    <th>Дата окончания</th>
+                                    <th>Статус</th>
+                                    <th>Прогресс</th>
+                                </tr>
+                            </thead>
+                            <tbody id="wallets-tbody">
+                                <tr>
+                                    <td colspan="6" class="loading-cell">Загрузка данных...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination" id="pagination">
+                        <button class="btn btn--outline btn--sm" id="prev-page" disabled>Предыдущая</button>
+                        <span class="pagination-info" id="pagination-info">Страница 1 из 1</span>
+                        <button class="btn btn--outline btn--sm" id="next-page" disabled>Следующая</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Методология -->
+        <section class="methodology-section">
+            <div class="card">
+                <div class="card__body">
+                    <h2>Методология</h2>
+                    <div class="methodology-content">
+                        <p><strong>Источник данных:</strong> Данные о vesting кошельках TON получены из публичного JSON-источника 
+                        <a href="https://unlocks.gosunov.ru/vesting-wallets.json" target="_blank">vesting-wallets.json</a>.</p>
+                        
+                        <p><strong>Расчет разблокировок:</strong> График отражает суммарный объем разблокированных токенов по дням. 
+                        Каждый vesting кошелек имеет параметры:</p>
+                        <ul>
+                            <li>Время начала разблокировки (start_time)</li>
+                            <li>Общую продолжительность (total_duration)</li>
+                            <li>Период разблокировки (unlock_period)</li>
+                            <li>Период cliff (cliff_duration)</li>
+                            <li>Общий объем токенов (total_amount)</li>
+                        </ul>
+                        
+                        <p><strong>Особенности:</strong> Включает только vesting-wallets, не включает TON Believers Fund. 
+                        Данные собраны с помощью DTON GraphQL API. Методология соответствует оригинальному сайту 
+                        <a href="https://unlocks.gosunov.ru" target="_blank">unlocks.gosunov.ru</a>.</p>
+                        
+                        <p><strong>Обновление данных:</strong> Данные автоматически загружаются при каждом посещении страницы.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Футер -->
+        <footer class="footer">
+            <p>© 2025 TON Unlocks Tracker | Данные обновляются ежедневно</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="ton-metrics.js"></script>
+</body>
+</html>
